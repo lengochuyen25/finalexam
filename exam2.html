@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam2</title>
+</head>
+<body>
+<label>Xóa phần tử trong mảng: </label><br>
+<input type="text" id="number">
+<button onclick="pushElement()">Thêm</button>
+</br>
+
+<p id="theArray"></p>
+<input type="text" id="removeNumber">
+<button onclick="check()">Xóa</button>
+<p id="result"></p>
+<script>
+    let theArray = [];
+
+    function pushElement() {
+        theArray.push(parseInt(document.getElementById('number').value));
+        document.getElementById('theArray').innerHTML = theArray;
+    }
+
+    function tryRemoveFromArray(arr, n) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == n) {
+                arr.splice(i, 1);
+                i--;
+            }
+        }
+        return arr;
+    }
+    function check() {
+        let result = tryRemoveFromArray(theArray, document.getElementById('removeNumber').value);
+        document.getElementById('result').innerHTML = result;
+    }
+</script>
+</body>
+</html>
